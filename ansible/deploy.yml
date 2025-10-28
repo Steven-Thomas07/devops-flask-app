@@ -1,0 +1,13 @@
+- name: Deploy Flask App to Minikube
+  hosts: localhost
+  tasks:
+    - name: Apply Kubernetes manifests
+      command: kubectl apply -f ../k8s-manifests/
+    - name: Wait for deployment to be ready
+      command: kubectl wait --for=condition=available --timeout=300s deployment/flask-deployment
+    - name: Get service URL
+      command: kubectl get svc flask-service -o jsonpath='{.spec.ports[0].nodePort}'
+      register: node_port
+    - name: Display service info
+      debug:
+        msg: "Flask app deployed. Access via: http://localhost:{{ node_port.stdout }}"
