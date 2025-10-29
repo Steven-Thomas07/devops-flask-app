@@ -3,12 +3,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "devops-rg"
-  location = "East US"
+  name     = var.resource_group_name
+  location = var.location
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "devops-aks"
+  name                = var.cluster_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   dns_prefix          = "devops-cluster"
@@ -25,7 +25,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = "devopsacr"
+  name                = var.acr_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   sku                 = "Basic"

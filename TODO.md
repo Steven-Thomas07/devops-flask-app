@@ -1,26 +1,6 @@
-# TODO List for DevOps Flask App Project
+# TODO: Add Welcome Endpoint with Logging
 
-- [x] Create app/app.py
-- [x] Create app/requirements.txt
-- [x] Create app/templates/index.html
-- [x] Create Dockerfile
-- [x] Create terraform/main.tf
-- [x] Create terraform/variables.tf (empty)
-- [x] Create terraform/outputs.tf (empty)
-- [x] Create ansible/deploy.yml
-- [x] Create k8s-manifests/deployment.yaml
-- [x] Create k8s-manifests/service.yaml
-- [x] Create .github/workflows/deploy.yml
-- [x] Create README.md (empty)
-- [x] Test Flask app locally with Python (Flask app running successfully at http://127.0.0.1:5000, HTML response verified)
-- [x] Test Flask app locally with Docker (Docker running successfully, app accessible at http://127.0.0.1:5000)
-- [x] Install Azure CLI
-- [x] Add Azure CLI to PATH or use full path for commands (using full path & "C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin\az.cmd")
-- [x] Install Minikube (kubectl installed via Chocolatey, cluster already running)
-- [x] Start Minikube cluster (cluster running, pods deployed)
-- [x] Update manifests to use Docker Hub image
-- [x] Push Docker image to Docker Hub
-- [x] Deploy to Minikube using kubectl
-- [x] Update Ansible playbook for Minikube
-- [x] Update GitHub Actions for Docker Hub and Minikube
-- [x] Test full local pipeline (Ansible playbook updated, GitHub Actions updated, rollout tested successfully)
+- [x] Update app.py imports: Add logging and jsonify from flask
+- [x] Add logging setup in app.py after app initialization
+- [x] Add new '/welcome' route in app.py that logs request method and path, returns JSON welcome message
+- [x] Test the new endpoint by making a request to verify it works and logs correctly
